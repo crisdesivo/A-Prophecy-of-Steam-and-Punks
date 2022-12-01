@@ -130,4 +130,11 @@ public class BattleController : MonoBehaviour
     {
         OnStart();
     }
+
+    void Update(){
+        // TODO remove for webgl build
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            SceneController.loadScene("MainMenu");
+        }
+    }
 }

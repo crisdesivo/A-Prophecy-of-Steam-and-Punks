@@ -43,6 +43,10 @@ public class StageController : MonoBehaviour
         skillTree.SetActive(true);
     }
 
+    public void GoToMainMenu(){
+        SceneController.loadScene("MainMenu");
+    }
+
     // Update is called once per frame
     void Update()
     {

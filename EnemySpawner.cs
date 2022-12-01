@@ -63,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
             }
             // string enemyName = possibleEnemies[Random.Range(0, possibleEnemies.Count)];
             // spawn enemy
-            GameObject enemyObject = Instantiate(enemyDifficulty[selectedEnemy].Item2, new Vector3(Random.Range(-6, 6), 5, 0), Quaternion.identity);
+            GameObject enemyObject = Instantiate(enemyDifficulty[selectedEnemy].Item2, new Vector3(Random.Range(-6f, 6f), 5f, 0), Quaternion.identity);
             enemyObject.GetComponent<Enemy>().player = player;
             currentDifficulty += enemyDifficulty[selectedEnemy].Item1;
         }
@@ -102,7 +102,7 @@ public class EnemySpawner : MonoBehaviour
                     // spawn boss
                     boss1.SetActive(true);
 
-                    soundtrack.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("Audio/boss_track_1_test_master_2");
+                    soundtrack.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("Audio/boss_track_2_ogg");
                     soundtrack.GetComponent<AudioSource>().Play();
                 }
             }
@@ -135,7 +135,7 @@ public class EnemySpawner : MonoBehaviour
                     // spawn boss
                     boss2.SetActive(true);
 
-                    soundtrack.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("Audio/boss_track_2_ogg");
+                    soundtrack.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("Audio/boss_track_1_test_master_2");
                     soundtrack.GetComponent<AudioSource>().Play();
                 }
             }

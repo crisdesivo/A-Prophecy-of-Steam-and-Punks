@@ -69,8 +69,3 @@ The spider attacked them. Taylor jumped, closely avoiding the attack. But his pa
 18
 00:02:43,500 --> 00:03:02,300
 Taylor launched forward in a fit of rage, destroying the spider. He surprised himself, as he felt stronger than ever. But he knew he had to escape, so he ran, and he ran faster than he ever could before, outrunning even the mechanical spiders that were targeting him.
-
-19
-00:03:02,800 --> 00:03:08,300
-He ran towards the city, where he knew he would have a chance to hide.
-

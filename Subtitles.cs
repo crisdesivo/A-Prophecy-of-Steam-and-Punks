@@ -136,7 +136,15 @@ public class Subtitles : MonoBehaviour
                 currentSubtitleIndex++;
             }
             // wait until the next subtitle
-            yield return new WaitUntil(() => subtitles[currentSubtitleIndex].Item2 < narration.GetComponent<AudioSource>().time);
+            if (currentSubtitleIndex < subtitles.Count)
+            {
+                yield return new WaitUntil(() => subtitles[currentSubtitleIndex].Item2 < narration.GetComponent<AudioSource>().time);
+            }
+            else
+            {
+                yield return null;
+            }
+            // yield return new WaitUntil(() => subtitles[currentSubtitleIndex].Item2 < narration.GetComponent<AudioSource>().time);
             // yield return WaitForSeconds(subtitles[currentSubtitleIndex].Item2 - currentTime);
         }
     }
