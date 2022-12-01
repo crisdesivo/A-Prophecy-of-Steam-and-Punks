@@ -1,0 +1,13 @@
+{
+    "damage": 3.0,
+    "life": 20.0,
+    "attackDelay": 4,
+    "knockbakResistance": 1,
+    "afterAttackDelay": 2,
+    "shakeRadius": 0.1,
+    "shakeTime": 0.4,
+    "attackType": "soul_bullet",
+    "movementType": "Follow",
+    "exp": 1.5,
+    "speed": 4
+}

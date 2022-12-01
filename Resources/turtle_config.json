@@ -1,0 +1,13 @@
+{
+    "damage": 7.0,
+    "life": 40.0,
+    "attackDelay": 3.0,
+    "knockbakResistance": 10,
+    "afterAttackDelay": 0.1,
+    "shakeRadius": 0.1,
+    "shakeTime": 0.5,
+    "attackType": "boomerang",
+    "movementType": "Follow",
+    "exp": 2.5,
+    "speed": 0.2
+}

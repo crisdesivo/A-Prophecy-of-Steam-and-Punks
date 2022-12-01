@@ -1,0 +1,13 @@
+{
+    "damage": 5.0,
+    "life": 15.0,
+    "attackDelay": 2000.0,
+    "knockbakResistance": 0.23,
+    "afterAttackDelay": 0,
+    "shakeRadius": 2,
+    "shakeTime": 0,
+    "attackType": "bullet",
+    "movementType": "FollowTangent",
+    "exp": 1.5,
+    "speed": 8
+}

@@ -1,0 +1,13 @@
+{
+    "damage": 10.0,
+    "life": 300.0,
+    "attackDelay": 5.0,
+    "knockbakResistance": 3,
+    "afterAttackDelay": 0.1,
+    "shakeRadius": 0.2,
+    "shakeTime": 1,
+    "attackType": "fire_inferno_slow",
+    "movementType": "FollowTangent",
+    "exp": 0,
+    "speed": 3
+}

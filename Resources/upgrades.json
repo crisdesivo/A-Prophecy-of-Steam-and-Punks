@@ -1,0 +1,95 @@
+{
+    "Items": [
+    {
+        "name": "boomerang",
+        "id": "boomerang",
+        "type": "weapon",
+        "description": "Launches a boomerang that moves back and forth between you and the target.",
+        "effect": "addWeapon",
+        "requirements": [],
+        "repeatable": false
+    },
+    {
+        "name": "shockwave",
+        "id": "shockwave",
+        "type": "weapon",
+        "description": "Launches a shockwave that damages enemies.",
+        "effect": "addWeapon",
+        "requirements": [],
+        "repeatable": false
+    },
+    {
+        "name": "fire inferno",
+        "id": "fire_inferno",
+        "type": "weapon",
+        "description": "Launches a fire inferno that damages enemies.",
+        "effect": "addWeapon",
+        "requirements": [],
+        "repeatable": false
+    },
+    {
+        "name": "blue gun",
+        "id": "blue_gun",
+        "type": "weapon",
+        "description": "Fires bullets at aimed direction.",
+        "effect": "addWeapon",
+        "requirements": [],
+        "repeatable": false
+    },
+    {
+        "name": "pill",
+        "id": "capsule",
+        "type": "weapon",
+        "description": "Fires a capsule at aimed direction.",
+        "effect": "addWeapon",
+        "requirements": [],
+        "repeatable": false
+    },
+    {
+        "name": "Constitution",
+        "id": "constitution",
+        "type": "stats",
+        "description": "Gives you 10% more max health.",
+        "effect": "maxHealth,0.1",
+        "requirements": [],
+        "repeatable": true
+    },
+    {
+        "name": "Constitution 2",
+        "id": "constitution2",
+        "type": "stats",
+        "description": "Gives you 20% more max health.",
+        "effect": "maxHealth,0.2",
+        "requirements": [],
+        "repeatable": true
+    },
+    {
+        "name": "Shield",
+        "id": "shield",
+        "type": "stats",
+        "description": "Receive 10% less damage.",
+        "effect": "shield,0.1",
+        "requirements": [],
+        "repeatable": false
+    },
+    {
+        "name": "Shield",
+        "id": "shield2",
+        "type": "stats",
+        "description": "Receive 10% less damage.",
+        "effect": "shield,0.1",
+        "requirements": ["shield"],
+        "repeatable": false
+    },
+    {
+        "name": "Energizer",
+        "id": "energizer",
+        "type": "stats",
+        "description": "Move 3% faster.",
+        "effect": "speed,0.03",
+        "requirements": [],
+        "repeatable": true
+    }
+
+]
+}
