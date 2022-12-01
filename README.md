@@ -8,7 +8,7 @@ Discover all the mysteries of this dark world.
 
 
 
-Controls:
+## Controls:
 
 - Mouse (aim, shoot, choose UI)
 
@@ -22,7 +22,7 @@ Controls:
 
 
 
-Game Off Game Jam:
+## Game Off Game Jam:
 
 This game was made in November of 2022 for the game jam "Game Off". 
 
