@@ -21,7 +21,7 @@ public class PlayerTutorial : Player
                 break;
             }
         }
-        life = 0.1f;
+        life = 0.01f;
         heart.GetComponent<Heart>().UpdateHP(life, maxLife);
         // AttackSummoner blueGun = new BlueGun();
         // attackSummoners.Add(blueGun);
@@ -32,8 +32,8 @@ public class PlayerTutorial : Player
     {
         // die
         Debug.Log("Player died");
-        // add transparency to player sprite
-        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        // add transparency to the animation
+        animation.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
     }
 
 }

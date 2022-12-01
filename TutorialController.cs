@@ -35,7 +35,10 @@ public class TutorialController : BattleController
             yield return null;
         }
 
+        player.GetComponent<Player>().life = 0.01f;
+        int iterations = 0;
         while (true){
+            iterations++;
             // destroy all objects tagged as Attack
             GameObject[] attacks = GameObject.FindGameObjectsWithTag("Attack");
             foreach (GameObject attack in attacks)
@@ -53,14 +56,26 @@ public class TutorialController : BattleController
             // spawn 3 enemies
             enemies = new GameObject[3];
             enemy = tutorialSpawner.GetComponent<EnemySpawner>().InstantiateEnemy("tutorial_enemy");
+            enemy.GetComponent<Enemy>().exp = 0;
             enemy.transform.position = new Vector3(-4, 0, 0);
             enemies[0] = enemy;
             enemy = tutorialSpawner.GetComponent<EnemySpawner>().InstantiateEnemy("tutorial_enemy");
+            enemy.GetComponent<Enemy>().exp = 0;
             enemy.transform.position = new Vector3(-4, 1, 0);
             enemies[1] = enemy;
             enemy = tutorialSpawner.GetComponent<EnemySpawner>().InstantiateEnemy("tutorial_enemy");
+            enemy.GetComponent<Enemy>().exp = 0;
             enemy.transform.position = new Vector3(-4, -1, 0);
             enemies[2] = enemy;
+
+            // if not resurrected increase enemy speed
+            if (!resurrected)
+            {
+                foreach (GameObject enemi in enemies)
+                {
+                    enemi.GetComponent<Enemy>().speed = iterations*0.2f;
+                }
+            }
 
             // wait until all enemies are null or all enemy's hp is less than 0 or player hp is less than 0
 
@@ -86,6 +101,8 @@ public class TutorialController : BattleController
             // if player hp is less than 0
             if (player.GetComponent<Player>().life <= 0)
             {
+                // increate strength by 1
+                player.GetComponent<Player>().baseStrength++;
                 // wait for 1 second (unscaled)
                 yield return new WaitForSecondsRealtime(1);
                 // remove all enemies and attacks

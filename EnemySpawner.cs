@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject boss1;
     public GameObject boss2;
     public GameObject boss3;
+    public GameObject floorCounter;
 
     public GameObject InstantiateEnemy(string enemyName)
     {
@@ -110,10 +112,10 @@ public class EnemySpawner : MonoBehaviour
                     GameObject pinkOrbPrefab = Resources.Load("Enemies/pink_orb") as GameObject;
                     GameObject enemyBall2Prefab = Resources.Load("Enemies/enemy_ball2") as GameObject;
                     GameObject soulShooterPrefab = Resources.Load("Enemies/soul_shooter") as GameObject;
-                    float soulClockDifficulty = 2.1f;
-                    float pinkOrbDifficulty = 2.1f;
-                    float enemyBall2Difficulty = 2.1f;
-                    float soulShooterDifficulty = 2.1f;
+                    float soulClockDifficulty = 2.2f;
+                    float pinkOrbDifficulty = 1.6f;
+                    float enemyBall2Difficulty = 2.5f;
+                    float soulShooterDifficulty = 2.4f;
 
                     Dictionary<string, (float, GameObject)> enemies = new Dictionary<string, (float, GameObject)>();
                     enemies.Add("soul_clock", (soulClockDifficulty, soulClockPrefab));
@@ -121,7 +123,7 @@ public class EnemySpawner : MonoBehaviour
                     enemies.Add("enemy_ball2", (enemyBall2Difficulty, enemyBall2Prefab));
                     enemies.Add("soul_shooter", (soulShooterDifficulty, soulShooterPrefab));
 
-                    float flootDifficulty = 4.8f + 1.4f*floor;
+                    float flootDifficulty = 4.2f + 0.56f*floor;
                     SpawnDifficulty(flootDifficulty, enemies);
                     // for (int i = 0; i < floor*level; i++){
                     //     // spawn enemies at the top of the screen
@@ -204,6 +206,8 @@ public class EnemySpawner : MonoBehaviour
 
         soundtrack.GetComponent<AudioHighPassFilter>().enabled = false;
         floor++;
+        // update floor text
+        floorCounter.GetComponent<TextMeshProUGUI>().text = "Floor: " + floor.ToString();
         if (floor <= 11){
             // set player position to the bottom of the screen
             player.transform.position = new Vector3(0, -4, 0);

@@ -29,7 +29,7 @@ public class Enemy: Entity
     public GameObject attackPrefab { get; set; }
     public float damage = 1.0f;
     public float attackDelay = 5.0f;
-    private float currentDelay = 0f;
+    protected float currentDelay = 0f;
     // public float dropExp = 1.0f;
     public static GameObject expPrefab;
     public float knockbakResistance = 1f;
@@ -92,9 +92,9 @@ public class Enemy: Entity
     public void MoveTangentlyTowardsPlayer()
     {
         // move enemy tangent to player
-        Vector3 direction = player.transform.position - transform.position;
+        Vector3 direction = (player.transform.position - transform.position).normalized;
         Vector3 tangent = new Vector3(direction.y, -direction.x, 0);
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position + tangent, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position + tangent*3f, speed * Time.deltaTime);
         if (rotateOnDirection)
         {
             // rotate enemy towards player
@@ -160,11 +160,10 @@ public class Enemy: Entity
     public IEnumerator MoveCoroutine()
     {
         Debug.Log("MoveCoroutine");
-        // TODO parametrize
         while (true)
         {
-            // for 60 steps
-            for (int i = 0; i < 500; i++)
+            int amount = Random.Range(200, 500);
+            for (int i = 0; i < amount; i++)
             {
                 while(paused)
                 {
@@ -173,12 +172,12 @@ public class Enemy: Entity
                 Move();
                 yield return null;
             }
-            // wait for 1 second
+            // wait for x second
             while(paused)
             {
                 yield return null;
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(Random.Range(0f, 2f));
         }
     }
 
@@ -425,7 +424,6 @@ public class Enemy: Entity
     {
         // load from json bat_config
         loadStatsFromJson("spider_config");
-        currentDelay = 0;
     }
 
     public void Start()

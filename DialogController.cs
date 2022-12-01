@@ -126,6 +126,7 @@ public class DialogController : MonoBehaviour
             "Good.",
             "Nyx",
             "Nyx_1_14");
+        SceneController.dialog = "";
 
         // go to tutorial scene
         SceneController.loadScene("Tutorial");
@@ -177,6 +178,7 @@ public class DialogController : MonoBehaviour
             "According to the prophecy, you must first collect mithril. You’ll find lots of it in the mechanical body parts factory. But.. They won’t give it up willingly, so be prepared to fight for it.",
             "Nyx",
             "Nyx_2_3");
+        SceneController.dialog = "";
         SceneController.loadScene("StageSelection");
     }
 
@@ -193,6 +195,7 @@ public class DialogController : MonoBehaviour
             "I think I know where that is. An old ruin that was discovered to be an ancient mausoleum. But be careful, the prophecy says that they aren’t dead, whatever that means.",
             "Nyx",
             "Nyx_3_2");
+        SceneController.dialog = "";
         SceneController.loadScene("StageSelection");
     }
 
@@ -201,6 +204,7 @@ public class DialogController : MonoBehaviour
             "I guess it's time for revenge.",
             "Taylor",
             "Taylor_35");
+        SceneController.dialog = "";
         SceneController.loadScene("StageSelection");
     }
 
@@ -246,6 +250,7 @@ public class DialogController : MonoBehaviour
             "But now it's time to finish what I started",
             "John",
             "Priest_8");
+        SceneController.dialog = "";
         SceneController.loadScene("StageSelection");
     }
 
@@ -354,7 +359,9 @@ public class DialogController : MonoBehaviour
             "You’re the only one who can help us save our planet from losing any more innocent lives.",
             "Nyx",
             "Nyx_4_20");
-        SceneController.loadScene("StageSelection");
+        SceneController.dialog = "";
+        SceneController.secretCredits = true;
+        SceneController.loadScene("Credits");
     }
 
 
@@ -388,22 +395,28 @@ public class DialogController : MonoBehaviour
     void Update(){
         if (Input.GetKeyDown(KeyCode.Return)){
             if (SceneController.dialog == "Intro1"){
-            SceneController.loadScene("Tutorial");
+                SceneController.dialog = "";
+                SceneController.loadScene("Tutorial");
             }
             else if (SceneController.dialog == "Intro2"){
+                SceneController.dialog = "";
                 SceneController.loadScene("StageSelection");
             }
             else if (SceneController.dialog == "Interlude"){
+                SceneController.dialog = "";
                 SceneController.loadScene("StageSelection");
             }
             else if (SceneController.dialog == "Interlude2"){
+                SceneController.dialog = "";
                 SceneController.loadScene("StageSelection");
             }
             else if (SceneController.dialog == "PriestDialog"){
                 // SceneController.loadScene("StageSelection");
             }
             else if (SceneController.dialog == "FinalDialog"){
-                SceneController.loadScene("StageSelection");
+                SceneController.dialog = "";
+                SceneController.secretCredits = true;
+                SceneController.loadScene("Credits");
             }
         }
     }

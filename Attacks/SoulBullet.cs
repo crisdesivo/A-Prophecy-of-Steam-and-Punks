@@ -28,7 +28,7 @@ public class SoulBullet: Bullet {
         set { }
     }
 
-    private float duration = 10.0f;
+    public float duration = 3.0f;
     private float time = 0.0f;
 
 
@@ -52,11 +52,11 @@ public class SoulBullet: Bullet {
             float cross = Vector3.Cross(direction, targetDirection).z;
             if (cross > 0)
             {
-                direction = Quaternion.Euler(0, 0, 45*Time.deltaTime) * direction;
+                direction = Quaternion.Euler(0, 0, 45*Time.deltaTime*speed/0.3f) * direction;
             }
             else
             {
-                direction = Quaternion.Euler(0, 0, -45*Time.deltaTime) * direction;
+                direction = Quaternion.Euler(0, 0, -45*Time.deltaTime*speed/0.3f) * direction;
             }
             // direction = Vector2.MoveTowards(direction, (target.transform.position - transform.position).normalized, 0.03f).normalized;
             transform.position += (Vector3)direction * speed * Time.deltaTime * 15;

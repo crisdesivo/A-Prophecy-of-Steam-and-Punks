@@ -80,6 +80,8 @@ public class TombBoss: Enemy
         attack.GetComponent<AttackMove>().Initialize(transform.position, transform.rotation, gameObject);
         Vector2 direction = attackDirection;
         attack.GetComponent<AttackMove>().BeginAttack(player.GetComponent<Entity>(), direction);
+        ((SoulBullet)attack.GetComponent<AttackMove>()).speed = 0.8f;
+        ((SoulBullet)attack.GetComponent<AttackMove>()).duration = 5f;
         // rotate attack direction by 30 degrees
         attackDirection = Quaternion.Euler(0, 0, 30) * attackDirection;
 

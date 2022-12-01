@@ -7,9 +7,10 @@ using System;
 
 public class Player : Entity
 {
+    // TODO on unity editor set the stats to normal
     public override string targetTag { get { return "Enemy"; } set { } }
     public float baseAgility = 10.0f;
-    public float baseStrenght = 10.0f;
+    public float baseStrength = 10.0f;
     public float baseResistance = 10.0f;
     public float baseDexterity = 10.0f;
     public float baseIntelligence = 10.0f;
@@ -17,10 +18,10 @@ public class Player : Entity
     public float exp = 0.0f;
     public float expToNextLevel = 1.0f;
     public Modifiers modifiers = new Modifiers();
-    public float agility { get { return baseAgility + Data.unlockedSkills.GetValueOrDefault("agility", 0)*2f; } }
-    public float strenght { get { return baseStrenght + Data.unlockedSkills.GetValueOrDefault("strength", 0)*2f; } }
+    public float agility { get { return baseAgility + Data.unlockedSkills.GetValueOrDefault("agility", 0)*0.8f; } }
+    public float strenght { get { return baseStrength + Data.unlockedSkills.GetValueOrDefault("strength", 0)*1f; } }
     public float resistance { get { return baseResistance + modifiers["resistance"]; } }
-    public override float dexterity { get { return baseDexterity + Data.unlockedSkills.GetValueOrDefault("dexterity", 0)*2f; } }
+    public override float dexterity { get { return baseDexterity + Data.unlockedSkills.GetValueOrDefault("dexterity", 0)*1f; } }
     public float intelligence { get { return baseIntelligence + modifiers["intelligence"]; } }
     public override float speed { get { return agility * 0.1f; } }
 
@@ -36,6 +37,7 @@ public class Player : Entity
     public GameObject leftWeaponDisplay;
     public GameObject rightWeaponDisplay;
     public GameObject currentWeaponDisplay;
+    public GameObject hurtSound;
     // public GameObject animation;
 
     public List<Upgrade> upgrades = new List<Upgrade>();
@@ -116,6 +118,14 @@ public class Player : Entity
             {
                 if (autoShoot || Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
                 {
+                    // check if current attack is ready
+                    if (currentAttackSummoner.waitTime <= 0)
+                    {
+                        currentAttackSummoner.SummonAttack(transform.position, transform.rotation, gameObject, aimDirection);
+                        attacking = true;
+                        // play shooting sound
+                        GetComponent<AudioSource>().Play();
+                    }
                     currentAttackSummoner.SummonAttack(transform.position, transform.rotation, gameObject, aimDirection);
                     attacking = true;
                 }
@@ -227,6 +237,8 @@ public class Player : Entity
 
         else
         {
+            // play hurt sound
+            hurtSound.GetComponent<AudioSource>().Play();
             // flash red
             if (getHitCoroutine == null)
             {
@@ -262,7 +274,7 @@ public class Player : Entity
         // resurrect
         Debug.Log("Player resurrected");
         // remove transparency from player sprite
-        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+        animation.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 
     internal void CollectExp(ExpOrb expOrb)

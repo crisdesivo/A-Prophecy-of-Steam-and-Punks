@@ -29,7 +29,10 @@ public class MainMenu : MonoBehaviour
 
     public void ContinueGame()
     {
+        Data.DebugLogData();
+        Debug.Log("Continue Game");
         Data.loadData();
+        Data.DebugLogData();
         if (Data.beatenTutorial)
         {
             SceneController.loadScene("StageSelection");
@@ -38,6 +41,11 @@ public class MainMenu : MonoBehaviour
         {
             SceneController.loadScene("Story Introduction");
         }
+    }
+
+    public void OpenCredits()
+    {
+        SceneController.loadScene("Credits");
     }
 
     // Update is called once per frame

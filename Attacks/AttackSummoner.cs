@@ -32,6 +32,7 @@ public abstract class AttackSummoner
         if (user.GetComponent<Entity>().targetTag == "Player")
         {
             target = GameObject.Find("Player").GetComponent<Entity>();
+
         }
         else
         {

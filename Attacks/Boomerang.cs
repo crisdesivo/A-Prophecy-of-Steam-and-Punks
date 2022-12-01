@@ -42,6 +42,11 @@ public class Boomerang : AttackMove
 
     public override void BeginAttack(Entity target, Vector2 direction)
     {
+        // if user is Enemy add red tint to attack
+        if (user.GetComponent<Entity>().targetTag == "Player")
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
         Debug.Log("Boomerang attack new");
         StartCoroutine(Attack(user.GetComponent<Entity>(), target, direction.normalized));
     }

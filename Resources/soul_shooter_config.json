@@ -1,8 +1,8 @@
 {
     "damage": 5.0,
     "life": 30.0,
-    "attackDelay": 2.0,
-    "knockbakResistance": 10,
+    "attackDelay": 3.0,
+    "knockbakResistance": 8,
     "afterAttackDelay": 0.1,
     "shakeRadius": 0.1,
     "shakeTime": 0.5,

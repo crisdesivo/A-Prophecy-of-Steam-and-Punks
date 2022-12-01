@@ -10,6 +10,7 @@ public static class SceneController
     public static bool forcedDeath = false;
     public static string dialog;
     public static string input = "1";
+    public static bool secretCredits = false;
 
     public static void loadScene(string sceneName)
     {

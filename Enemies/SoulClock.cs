@@ -7,7 +7,7 @@ public class SoulClock : Enemy
     public override void OnStart(){
 
         loadStatsFromJson("soul_clock_config");
-
+        currentDelay = 0;
     }
     public override void ChooseAttack()
     {

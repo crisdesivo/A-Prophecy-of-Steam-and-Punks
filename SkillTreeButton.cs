@@ -8,6 +8,7 @@ public class SkillTreeButton : MonoBehaviour
     public string skillName;
     public GameObject costText;
     public GameObject levelText;
+    public GameObject buySound;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,8 @@ public class SkillTreeButton : MonoBehaviour
             costText.GetComponent<TextMeshProUGUI>().text = ((int)(10*Mathf.Pow(1.5f, level+1))).ToString();
             // update the level text
             levelText.GetComponent<TextMeshProUGUI>().text = (level+1).ToString();
+            // play the buy sound
+            buySound.GetComponent<AudioSource>().Play();
         }
     }
 

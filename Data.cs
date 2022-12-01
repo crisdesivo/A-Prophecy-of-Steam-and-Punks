@@ -93,4 +93,18 @@ public static class Data
             }
         }
     }
+    public static void DebugLogData()
+    {
+        Debug.Log("unlockedSkills:");
+        foreach (KeyValuePair<string, int> entry in unlockedSkills)
+        {
+            Debug.Log(entry.Key + "," + entry.Value);
+        }
+        Debug.Log("gold:" + gold);
+        Debug.Log("beatenTutorial:" + beatenTutorial);
+        Debug.Log("beatenLevel1:" + beatenLevel1);
+        Debug.Log("beatenLevel2:" + beatenLevel2);
+        Debug.Log("beatenLevel3:" + beatenLevel3);
+        Debug.Log("beatenLevel4:" + beatenLevel4);
+    }
 }
